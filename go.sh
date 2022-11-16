@@ -6,9 +6,14 @@
 . util/customize.sh
 . util/leave.sh
 . util/systemCheck.sh
+. util/go.sh
+mkdir -p tmp
 printf "\x1b[1;33mTechflash \x1b[32mx86-64_elf-gcc\x1b[0m Builder\x1b[1;36m v%s.%s.%s\x1b[0m\r\n" $vMajor $vMinor $vPatch
 note "This script will build the cross compiler needed to compile \x1b[33mTechflash OS\x1b[0m."
-note "While it may work for other uses, this is not a guarantee."
+note "While it may work for other uses, this is not a guarantee.\r\n"
+warning "This program will compile and install the \x1b[1;39m*LATEST*\x1b[0m version of GCC and Binutils."
+warning "This means that the installed version may have bugs."
+warning "If problems persist, please try to rebuild with the current latest version."
 printf "\r\n\r\n"
 printf "\x1b[33mPerforming system check.  Please wait.\x1b[0m\r\n"
 systemCheck

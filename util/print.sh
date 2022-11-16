@@ -14,3 +14,8 @@ error() {
 	printf "$1"
 	printf "\r\n"
 }
+progress() {
+	printf "\x1b[1;32m===> PROGRESS!: \x1b[0m"
+	printf "$1"
+	printf "\r\n"
+}
