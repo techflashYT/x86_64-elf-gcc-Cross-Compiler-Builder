@@ -1,4 +1,5 @@
 #!/bin/sh
+# shellcheck source=../../config.cfg
 . ./config.cfg
 checkGit() {
 	printf "Checking for git... " 1>&2

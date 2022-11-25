@@ -1,4 +1,5 @@
 #!/bin/sh
+# shellcheck source=print.sh
 . util/print.sh
 leaveCustomize() {
 	clear
