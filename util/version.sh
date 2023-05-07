@@ -1,5 +1,5 @@
 #!/bin/sh
 
-vMajor=0
-vMinor=0
-vPatch=1
+export vMajor=0
+export vMinor=0
+export vPatch=1

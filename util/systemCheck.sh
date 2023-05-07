@@ -1,13 +1,8 @@
 #!/bin/bash
-# shellcheck source=print.sh
 . util/print.sh
-# shellcheck source=checks/internet.sh
 . util/checks/internet.sh
-# shellcheck source=checks/git.sh
 . util/checks/git.sh
-# shellcheck source=checks/gcc.sh
 . util/checks/gcc.sh
-# shellcheck source=checks/make.sh
 . util/checks/make.sh
 
 systemCheck() {

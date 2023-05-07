@@ -1,7 +1,5 @@
 #!/bin/sh
-# shellcheck source=../config.cfg
 . ./config.cfg
-# shellcheck source=print.sh
 . util/print.sh
 download() {
 	progressMajor "DOWNLOADING"

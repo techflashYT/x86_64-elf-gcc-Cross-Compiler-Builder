@@ -1,6 +1,5 @@
 #!/bin/sh
 leave() {
-	clear
-	printf "Bye!\r\n"
+	echo "Bye!\r\n"
 	exit 0
 }

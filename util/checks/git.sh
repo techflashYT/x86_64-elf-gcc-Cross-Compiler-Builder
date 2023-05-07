@@ -1,5 +1,4 @@
 #!/bin/sh
-# shellcheck source=../../config.cfg
 . ./config.cfg
 checkGit() {
 	printf "Checking for git... " 1>&2
@@ -26,7 +25,7 @@ checkGit() {
 		if [ $gitStatus -ne 0 ] || [ $lsStatus -ne 0 ]; then
 			printf "\x1b[31mno.\r\n\x1b[0m" 1>&2
 			error "Git was found, but it doesn't seem to be functioning correctly.\r\n"
-			if [ $verbose = true ]; then
+			if [ "$verbose" = true ]; then
 				error "There should be a \`\x1b[33mTesting\x1b[0m' folder that contains a file \`\x1b[33mREADME.md\x1b[0m'."
 				error "There should also be a \`\x1b[33mgit.log\x1b[0m' file in the same directory as the \`\x1b[33mgo.sh\x1b[0m' script you just ran."
 				error "If the directory does not exist, or the log file contains an error, please attempt to resolve it."

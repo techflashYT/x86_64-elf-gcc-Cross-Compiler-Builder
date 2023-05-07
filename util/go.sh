@@ -1,9 +1,6 @@
 #!/bin/sh
-# shellcheck source=../config.cfg
 . ./config.cfg
-# shellcheck source=download.sh
 . util/download.sh
-# shellcheck source=compile.sh
 . util/compile.sh
 go() {
 	if [ $doDownload = true ]; then

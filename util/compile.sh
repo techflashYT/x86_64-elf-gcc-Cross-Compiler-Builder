@@ -1,11 +1,7 @@
 #!/bin/sh
-# shellcheck source=../config.cfg
 . ./config.cfg
-# shellcheck source=../util/print.sh
 . util/print.sh
-# shellcheck source=../tmp/versions.cfg
 . tmp/versions.cfg
-# shellcheck source=../tmp/makeStuff.cfg
 . tmp/makeStuff.cfg
 compile() {
 	progressMajor "COMPILING"
@@ -20,7 +16,7 @@ compile() {
 	../../binutils/configure --target=$targetForCompiler --prefix="$installPath" --with-sysroot --disable-nls --disable-werror
 	progressMajor "Compiling Binutils.  This might take a VERY long time."
 	proc=$(nproc)
-	if [ $forceUseAllCPU = true ]; then
+	if [ "$forceUseAllCPU" = "true" ]; then
 		warning "Using ever CPU available, even if that could seriously slow down the system!"
 	else
 		if [ $proc -le 4 ]; then
@@ -81,7 +77,7 @@ compile() {
 	done
 
 	printf "\x1b[0m" # fix broken formatting incase the massive number of jobs messed it up (it did during testing)
-	progressMajor "Please enter your password so that we can install the just compiled binutils!  \x1b[1;4;36mPress enter when you're ready\x1b[0m."
+	progressMajor "Please enter your password so that we can install the just compiled GCC!  \x1b[1;4;36mPress enter when you're ready\x1b[0m."
 	read junk
 	sudo $makePath install-gcc
 	progressMajor "If you have a goofy sudo setup or an extremely slow disk, you may need to enter your password again here.  Just in case, pausing until you press enter."
