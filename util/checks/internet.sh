@@ -3,8 +3,8 @@
 checkInternet() {
 	# redirect every normal output to stderr, and use stdout for errors so that we can capture it.  Goofy, I know.
 	printf "Checking for internet connectivity... " 1>&2
-	ping -c 1 techflash.tk > /dev/null 2>&1
-	if [ $? -ne 0 ]; then
+	#ping -c 1 techflash.tk > /dev/null 2>&1
+	#if [ $? -ne 0 ]; then
 		# is my website just down?
 		ping -c 1 google.com > /dev/null 2>&1
 		if [ $? -ne 0 ]; then
@@ -15,8 +15,8 @@ checkInternet() {
 			# we got a response pinging google, but not my website
 			printf "\x1b[32mconnected\x1b[0m.\r\n" 1>&2
 		fi
-	else
+	#else
 		# we got a response pinging my website
-		printf "\x1b[32mconnected\x1b[0m.\r\n" 1>&2
-	fi
+	#	printf "\x1b[32mconnected\x1b[0m.\r\n" 1>&2
+	#fi
 }

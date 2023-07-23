@@ -4,12 +4,13 @@ checkGit() {
 	printf "Checking for git... " 1>&2
 	gitPath=$(command -v git)
 	gitFound=$?
+	gitVer=$(git --version | awk '{ print $3 }')
 	
 	if [ $gitFound -ne 0 ]; then
 		printf "\x1b[31mnot found.\x1b[0m\r\n" 1>&2
 		error "Git wasn't found!  Please install it, then run this script again.\r\n"
 	else
-		printf "\x1b[32mfound\x1b[0m at \x1b[33m%s\x1b[0m!\r\n" "$gitPath" 1>&2
+		printf "\x1b[1;36mv%s \x1b[32mfound\x1b[0m at \x1b[33m%s\x1b[0m!\r\n" "$gitVer" "$gitPath" 1>&2
 	fi
 
 	printf "But does it work? " 1>&2

@@ -2,11 +2,13 @@
 # Trust me I don't want to use bash just as much as I'm sure you reading this don't want to see it,
 # but for some reason the escape codes just don't work right under dash/sh
 mkdir -p tmp
+touch tmp/versions.cfg
+touch tmp/makeStuff.cfg
 . util/version.sh
 . util/print.sh
 . util/customize.sh
 . util/leave.sh
-# . util/systemCheck.sh
+. util/systemCheck.sh
 . util/go.sh
 trap "killall make; leave" 2
 mkdir -p tmp

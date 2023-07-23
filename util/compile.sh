@@ -13,7 +13,7 @@ compile() {
 	fi
 	mkdir -p tmp/build/binutils
 	pushd tmp/build/binutils
-	../../binutils/configure --target=$targetForCompiler --prefix="$installPath" --with-sysroot --disable-nls --disable-werror
+	../../binutils/configure --target=$targetForCompiler $hostForCompiler --prefix="$installPath" --with-sysroot --disable-nls --disable-werror
 	progressMajor "Compiling Binutils.  This might take a VERY long time."
 	proc=$(nproc)
 	if [ "$forceUseAllCPU" = "true" ]; then
@@ -54,7 +54,7 @@ compile() {
 	popd
 	mkdir -p tmp/build/gcc
 	pushd tmp/build/gcc
-	../../gcc/configure --target=$targetForCompiler --disable-nls --enable-languages=c,c++ --without-headers --prefix=$installPath
+	../../gcc/configure --target=$targetForCompiler $hostForCompiler --disable-nls --enable-languages=c,c++ --without-headers --prefix=$installPath
 	$makePath -j$proc all-gcc &
 	pid=$!
 	while kill -0 "$pid" >/dev/null 2>&1; do
